@@ -31,7 +31,11 @@ The data isn’t perfect though.
 
 ## Data
 
-![](index.svg)
+[`index.svg`][svg]:
+
+![][svg]
+
+[`index.csv`][csv]:
 
 ```csv
 date,total,esm,dual,faux,cjs
@@ -52,15 +56,15 @@ date,total,esm,dual,faux,cjs
 This repo includes scripts to crawl npm and analyze the results.
 You need a
 
-`script/crawl.js` analyzes the `package.json` files of `latest` releases of
-[high-impact][] npm packages.
+[`script/crawl.js`][crawl] analyzes the `package.json` files of `latest`
+releases of [high-impact][] npm packages.
 After running it, please rename `data/latest.json` to the current date.
 This script finishes in about 5 minutes.
 You should likely first contribute to `npm-high-impact`, which can take like
 24 hours to complete.
 
-`script/analyze.js` analyzes the data files and generates SVG and CSV files
-from them.
+[`script/analyze.js`][analyze] analyzes the data files and generates SVG and
+CSV files from them.
 
 ## Contribute
 
@@ -88,3 +92,11 @@ This package is safe.
 [author]: https://wooorm.com
 
 [high-impact]: https://github.com/wooorm/npm-high-impact
+
+[crawl]: script/crawl.js
+
+[analyze]: script/analyze.js
+
+[svg]: index.svg
+
+[csv]: index.csv
