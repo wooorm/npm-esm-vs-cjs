@@ -51,6 +51,15 @@ date,total,esm,dual,faux,cjs
 > of them were popular back then.
 > Later dates will use a list of what’s popular on that date.
 
+> 👉 **Note**: not all of these packages are popular.
+> There are some false-positives, such that download counts can be gamed, and
+> that `libraries.io` sometimes thinks that a fork of webpack or so is actually
+> webpack.
+
+> 👉 **Note**: while `@types/*` packages are filtered out in the above counts,
+> it is likely that there are other packages included that aren’t really code,
+> particularly in the CJS category (as that’s the default).
+
 ## Scripts
 
 This repo includes scripts to crawl npm and analyze the results.
