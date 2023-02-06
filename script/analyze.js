@@ -26,7 +26,7 @@ for (const name of filesRaw) {
   }
 }
 
-/** @type {Array<Element>} */
+/** @type {Array<string | Element>} */
 const rows = []
 const viewBox = {width: 1024, height: 384}
 const styles = datasets.length
@@ -60,9 +60,9 @@ for (const name of datasets) {
   }
 
   let accumulatedX = gutter
-  /** @type {Array<Element>} */
+  /** @type {Array<string | Element>} */
   const cells = []
-  /** @type {Array<Element>} */
+  /** @type {Array<string | Element>} */
   const labels = []
 
   for (const key in counts) {
@@ -71,6 +71,7 @@ for (const name of datasets) {
       const value = counts[style]
       const width = (value / total) * (viewBox.width - gutter * 2)
       cells.push(
+        '\n',
         s('rect', {
           className: [style],
           x: accumulatedX,
@@ -81,6 +82,7 @@ for (const name of datasets) {
       )
 
       labels.push(
+        '\n',
         s(
           'text',
           {
@@ -103,6 +105,7 @@ for (const name of datasets) {
 
   // Add row label.
   labels.push(
+    '\n',
     s(
       'text',
       {
@@ -113,7 +116,7 @@ for (const name of datasets) {
     )
   )
 
-  rows.push(s('g', [...cells, ...labels]))
+  rows.push(s('g', [...cells, ...labels, '\n']))
   accumulatedY += height
   accumulatedY += gutter
 
@@ -127,13 +130,14 @@ for (const name of datasets) {
 const styleLabels = ['esm', 'dual', 'faux', 'cjs']
 const width = 96
 let accumulatedX = gutter
-/** @type {Array<Element>} */
+/** @type {Array<string | Element>} */
 const cells = []
-/** @type {Array<Element>} */
+/** @type {Array<string | Element>} */
 const labels = []
 
 for (const style of styleLabels) {
   cells.push(
+    '\n',
     s('rect', {
       className: [style],
       x: accumulatedX,
@@ -144,6 +148,7 @@ for (const style of styleLabels) {
   )
 
   labels.push(
+    '\n',
     s(
       'text',
       {
@@ -162,7 +167,7 @@ for (const style of styleLabels) {
   accumulatedX += width + gutter
 }
 
-rows.push(s('g', [...cells, ...labels]))
+rows.push('\n', s('g', [...cells, ...labels]), '\n')
 
 viewBox.width += 192 // Enough space for labels of rows.
 viewBox.height += gutter + height // Legend.
@@ -175,6 +180,7 @@ const tree = s(
   },
   [
     s('title', 'ESM vs. CJS on npm'),
+    '\n',
     s(
       'style',
       `
@@ -199,33 +205,40 @@ pattern rect { fill: #0d1117 }
 }
 `
     ),
+    '\n',
     s('defs', [
+      '\n',
       s(
         'pattern#a',
         {x: 0, y: 0, width: 6, height: 6, patternUnits: 'userSpaceOnUse'},
         [s('line', {x1: 0, y1: 0, x2: 0, y2: 6})]
       ),
+      '\n',
       s(
         'pattern#b',
         {x: 0, y: 0, width: 6, height: 6, patternUnits: 'userSpaceOnUse'},
         [s('line', {x1: 0, y1: 0, x2: 6, y2: 0})]
       ),
+      '\n',
       s(
         'pattern#c',
         {x: 0, y: 0, width: 6, height: 6, patternUnits: 'userSpaceOnUse'},
         [s('rect', {x: 0, y: 0, width: 1, height: 1})]
       )
     ]),
+    '\n',
     s('rect.b', {x: 0, y: 0, width: viewBox.width, height: viewBox.height}),
-    s('g', ...rows)
+    '\n',
+    s('g', ...rows),
+    '\n'
   ]
 )
 
 const document = toHtml(tree, {space: 'svg'})
 
-await fs.writeFile(new URL('../index.svg', import.meta.url), document)
+await fs.writeFile(new URL('../index.svg', import.meta.url), document + '\n')
 
 await fs.writeFile(
   new URL('../index.csv', import.meta.url),
-  csvFormat(allCounts)
+  csvFormat(allCounts) + '\n'
 )
