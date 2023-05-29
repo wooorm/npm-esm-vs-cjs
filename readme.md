@@ -45,6 +45,7 @@ date,total,esm,dual,faux,cjs
 2022-08-01,5734,496,207,791,4240
 2022-11-04,5747,518,216,785,4228
 2023-02-06,6085,568,255,856,4406
+2023-05-29,6240,634,383,796,4427
 ```
 
 > 👉 **Note**: crawls from before 2022-11-04 use the list of popular packages
@@ -75,6 +76,7 @@ You should likely first contribute to `npm-high-impact`, which can take like
 
 [`script/analyze.js`][analyze] analyzes the data files and generates SVG and
 CSV files from them.
+After running that, please copy/paste `index.csv` into this readme above.
 
 ## Contribute
 
