@@ -86,14 +86,14 @@ pattern rect { fill: #0d1117 }
 <text text-anchor="middle" transform="translate(644.4437140509449, 292.57142857142856)">72.4%</text>
 <text x="1024" y="292.57142857142856">2023-02-06</text>
 </g><g>
-<rect class="esm" x="32" y="333.71428571428567" height="18.285714285714285" width="97.53846153846153"></rect>
-<rect class="dual" x="129.53846153846155" y="333.71428571428567" height="18.285714285714285" width="58.92307692307692"></rect>
-<rect class="faux" x="188.46153846153845" y="333.71428571428567" height="18.285714285714285" width="122.46153846153845"></rect>
-<rect class="cjs" x="310.9230769230769" y="333.71428571428567" height="18.285714285714285" width="681.0769230769231"></rect>
-<text text-anchor="middle" transform="translate(80.76923076923077, 342.85714285714283) rotate(-45)">10.2%</text>
-<text text-anchor="middle" transform="translate(159, 342.85714285714283) rotate(-45)">6.1%</text>
-<text text-anchor="middle" transform="translate(249.69230769230768, 342.85714285714283) rotate(-45)">12.8%</text>
-<text text-anchor="middle" transform="translate(651.4615384615385, 342.85714285714283)">70.9%</text>
+<rect class="esm" x="32" y="333.71428571428567" height="18.285714285714285" width="96.92307692307692"></rect>
+<rect class="dual" x="128.9230769230769" y="333.71428571428567" height="18.285714285714285" width="64.15384615384615"></rect>
+<rect class="faux" x="193.07692307692304" y="333.71428571428567" height="18.285714285714285" width="120.46153846153845"></rect>
+<rect class="cjs" x="313.5384615384615" y="333.71428571428567" height="18.285714285714285" width="678.4615384615385"></rect>
+<text text-anchor="middle" transform="translate(80.46153846153845, 342.85714285714283) rotate(-45)">10.1%</text>
+<text text-anchor="middle" transform="translate(160.99999999999997, 342.85714285714283) rotate(-45)">6.7%</text>
+<text text-anchor="middle" transform="translate(253.30769230769226, 342.85714285714283) rotate(-45)">12.5%</text>
+<text text-anchor="middle" transform="translate(652.7692307692307, 342.85714285714283)">70.7%</text>
 <text x="1024" y="342.85714285714283">2023-05-29</text>
 </g>
 <g>

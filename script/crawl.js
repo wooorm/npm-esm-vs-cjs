@@ -25,6 +25,15 @@ let slice = 0
 const size = 20
 const destination = new URL('../data/latest.json', import.meta.url)
 
+// const result = await pacote.packument('@babel/runtime', {
+//   fullMetadata: true,
+//   token,
+//   preferOffline: true
+// })
+
+// console.log(analyzePackument(result))
+// process.exit(1)
+
 /** @type {Record<string, Style>} */
 const allResults = {}
 
@@ -124,32 +133,19 @@ function analyzePackument(result) {
           value = {'.': value}
         }
 
-        if (value && typeof value === 'object') {
-          let explicit = false
-          // @ts-expect-error: indexing on object is fine.
-          if (value.import) {
-            explicit = true
-            esm = true
-          }
-
-          // @ts-expect-error: indexing on object is fine.
-          if (value.require) {
-            explicit = true
-            cjs = true
-          }
-
-          const defaults = /** @type {unknown} */ (
-            // @ts-expect-error: indexing on object is fine.
-            value.node || value.default
-          )
-
-          if (typeof defaults === 'string' && !explicit) {
-            if (/\.mjs$/.test(defaults)) esm = true
-            if (/\.cjs$/.test(defaults)) cjs = true
-          }
-        }
+        analyzeThing(value, packument.name + '#exports')
       }
     }
+  }
+
+  // Explicit `commonjs` set, with a explicit `import` or `.mjs` too.
+  if (esm && type === 'commonjs') {
+    cjs = true
+  }
+
+  // Explicit `module` set, with explicit `require` or `.cjs` too.
+  if (cjs && type === 'module') {
+    esm = true
   }
 
   // If there are no explicit exports:
@@ -165,4 +161,47 @@ function analyzePackument(result) {
   const style = esm && cjs ? 'dual' : esm ? 'esm' : fauxEsm ? 'faux' : 'cjs'
 
   return style
+
+  /**
+   * @param {unknown} value
+   * @param {string} path
+   */
+  function analyzeThing(value, path) {
+    if (value && typeof value === 'object') {
+      if (Array.isArray(value)) {
+        let index = -1
+        while (++index < value.length) {
+          analyzeThing(value[index], path + '[' + index + ']')
+        }
+      } else {
+        let explicit = false
+        // @ts-expect-error: indexing on object is fine.
+        if (value.import) {
+          explicit = true
+          esm = true
+        }
+
+        // @ts-expect-error: indexing on object is fine.
+        if (value.require) {
+          explicit = true
+          cjs = true
+        }
+
+        const defaults = /** @type {unknown} */ (
+          // @ts-expect-error: indexing on object is fine.
+          value.node || value.default
+        )
+
+        if (typeof defaults === 'string' && !explicit) {
+          if (/\.mjs$/.test(defaults)) esm = true
+          if (/\.cjs$/.test(defaults)) cjs = true
+        }
+      }
+    } else if (typeof value === 'string') {
+      if (/\.mjs$/.test(value)) esm = true
+      if (/\.cjs$/.test(value)) cjs = true
+    } else {
+      console.log('unknown:', [value], path)
+    }
+  }
 }
