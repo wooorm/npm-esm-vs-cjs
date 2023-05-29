@@ -169,9 +169,10 @@ function analyzePackument(result) {
   function analyzeThing(value, path) {
     if (value && typeof value === 'object') {
       if (Array.isArray(value)) {
+        const values = /** @type {Array<unknown>} */ (value)
         let index = -1
-        while (++index < value.length) {
-          analyzeThing(value[index], path + '[' + index + ']')
+        while (++index < values.length) {
+          analyzeThing(values[index], path + '[' + index + ']')
         }
       } else {
         let explicit = false
