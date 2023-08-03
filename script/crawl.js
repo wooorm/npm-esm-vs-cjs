@@ -25,7 +25,7 @@ let slice = 0
 const size = 20
 const destination = new URL('../data/latest.json', import.meta.url)
 
-// const result = await pacote.packument('@babel/runtime', {
+// Const result = await pacote.packument('@babel/runtime', {
 //   fullMetadata: true,
 //   token,
 //   preferOffline: true
