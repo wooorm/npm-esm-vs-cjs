@@ -25,15 +25,6 @@ let slice = 0
 const size = 20
 const destination = new URL('../data/latest.json', import.meta.url)
 
-// Const result = await pacote.packument('@babel/runtime', {
-//   fullMetadata: true,
-//   token,
-//   preferOffline: true
-// })
-
-// console.log(analyzePackument(result))
-// process.exit(1)
-
 /** @type {Record<string, Style>} */
 const allResults = {}
 
