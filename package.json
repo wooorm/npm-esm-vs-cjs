@@ -4,9 +4,9 @@
   "description": "Data on the share of ESM vs CJS on the public npm registry",
   "license": "MIT",
   "keywords": [
-    "npm",
+    "cjs",
     "esm",
-    "cjs"
+    "npm"
   ],
   "repository": "wooorm/npm-esm-vs-cjs",
   "bugs": "https://github.com/wooorm/npm-esm-vs-cjs/issues",
@@ -19,8 +19,7 @@
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
   "type": "module",
-  "main": "index.csv",
-  "files": [],
+  "exports": [],
   "devDependencies": {
     "@types/d3-dsv": "^3.0.0",
     "@types/hast": "^3.0.0",
@@ -41,31 +40,32 @@
   },
   "scripts": {
     "build": "tsc --build --clean && tsc --build && type-coverage",
-    "format": "remark . -qfo && prettier . -w --log-level warn && xo --fix",
+    "format": "remark . --frail --output --quiet && prettier . --log-level warn --write && xo --fix",
     "test": "npm run build && npm run format"
   },
   "prettier": {
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
     "bracketSpacing": false,
+    "singleQuote": true,
     "semi": false,
-    "trailingComma": "none"
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": false
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-wooorm"
+    ]
+  },
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "ignoreCatch": true,
+    "strict": true
   },
   "xo": {
     "prettier": true,
     "rules": {
       "max-depth": "off"
     }
-  },
-  "remarkConfig": {
-    "plugins": [
-      "preset-wooorm"
-    ]
-  },
-  "typeCoverage": {
-    "atLeast": 100,
-    "detail": true,
-    "strict": true
   }
 }
