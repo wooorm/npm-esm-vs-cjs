@@ -23,21 +23,21 @@
   "files": [],
   "devDependencies": {
     "@types/d3-dsv": "^3.0.0",
-    "@types/hast": "^2.0.0",
+    "@types/hast": "^3.0.0",
     "@types/node": "^20.0.0",
     "@types/pacote": "^11.0.0",
     "d3-dsv": "^3.0.0",
     "dotenv": "^16.0.0",
-    "hast-util-to-html": "^8.0.0",
-    "hastscript": "^7.0.0",
+    "hast-util-to-html": "^9.0.0",
+    "hastscript": "^8.0.0",
     "npm-high-impact": "^1.0.0",
-    "pacote": "^15.0.0",
+    "pacote": "^17.0.0",
     "prettier": "^3.0.0",
     "remark-cli": "^11.0.0",
     "remark-preset-wooorm": "^9.0.0",
     "type-coverage": "^2.0.0",
     "typescript": "^5.0.0",
-    "xo": "^0.55.0"
+    "xo": "^0.56.0"
   },
   "scripts": {
     "build": "tsc --build --clean && tsc --build && type-coverage",
