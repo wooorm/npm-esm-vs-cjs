@@ -1,5 +1,6 @@
 /**
  * @typedef {import('hast').Element} Element
+ *
  * @typedef {import('./crawl.js').Style} Style
  */
 
@@ -26,30 +27,28 @@ for (const name of filesRaw) {
   }
 }
 
-/** @type {Array<string | Element>} */
+/** @type {Array<Element | string>} */
 const rows = []
-const viewBox = {width: 1024, height: 384}
+const viewBox = {height: 384, width: 1024}
 const styles = datasets.length
 const gutter = 32
 const height = (viewBox.height - gutter * (styles + 1)) / styles
 
 let accumulatedY = gutter
 
-/** @type {Array<Record<string, string|number>>} */
+/** @type {Array<Record<string, number | string>>} */
 const allCounts = []
 
 for (const name of datasets) {
-  /* eslint-disable no-await-in-loop */
   /** @type {Record<string, Style>} */
   const data = JSON.parse(
     String(
       await fs.readFile(new URL('../data/' + name + '.json', import.meta.url))
     )
   )
-  /* eslint-enable no-await-in-loop */
 
   /** @type {Record<Style, number>} */
-  const counts = {esm: 0, dual: 0, faux: 0, cjs: 0}
+  const counts = {cjs: 0, dual: 0, esm: 0, faux: 0}
   let total = 0
 
   for (const name in data) {
@@ -60,9 +59,9 @@ for (const name of datasets) {
   }
 
   let accumulatedX = gutter
-  /** @type {Array<string | Element>} */
+  /** @type {Array<Element | string>} */
   const cells = []
-  /** @type {Array<string | Element>} */
+  /** @type {Array<Element | string>} */
   const labels = []
 
   for (const key in counts) {
@@ -74,10 +73,10 @@ for (const name of datasets) {
         '\n',
         s('rect', {
           className: [style],
-          x: accumulatedX,
-          y: accumulatedY,
           height,
-          width
+          width,
+          x: accumulatedX,
+          y: accumulatedY
         })
       )
 
@@ -140,10 +139,10 @@ for (const style of styleLabels) {
     '\n',
     s('rect', {
       className: [style],
-      x: accumulatedX,
-      y: accumulatedY,
       height,
-      width
+      width,
+      x: accumulatedX,
+      y: accumulatedY
     })
   )
 
@@ -175,8 +174,8 @@ viewBox.height += gutter + height // Legend.
 const tree = s(
   'svg',
   {
-    xmlns: 'http://www.w3.org/2000/svg',
-    viewBox: [0, 0, viewBox.width, viewBox.height].join(' ')
+    viewBox: [0, 0, viewBox.width, viewBox.height].join(' '),
+    xmlns: 'http://www.w3.org/2000/svg'
   },
   [
     s('title', 'ESM vs. CJS on npm'),
@@ -197,7 +196,7 @@ pattern rect { fill: #0d1117 }
 
 @media (prefers-color-scheme: dark) {
   .b { fill: #0d1117; }
-  .esm, .dual, .faux, .cjs { stroke: white; }
+  .cjs, .dual, .esm, .faux { stroke: white; }
   .esm { fill: #0d1117; }
   text { fill: white; stroke: #0d1117; }
   pattern line { stroke: white; }
@@ -210,24 +209,24 @@ pattern rect { fill: #0d1117 }
       '\n',
       s(
         'pattern#a',
-        {x: 0, y: 0, width: 6, height: 6, patternUnits: 'userSpaceOnUse'},
+        {height: 6, patternUnits: 'userSpaceOnUse', width: 6, x: 0, y: 0},
         [s('line', {x1: 0, y1: 0, x2: 0, y2: 6})]
       ),
       '\n',
       s(
         'pattern#b',
-        {x: 0, y: 0, width: 6, height: 6, patternUnits: 'userSpaceOnUse'},
+        {height: 6, patternUnits: 'userSpaceOnUse', width: 6, x: 0, y: 0},
         [s('line', {x1: 0, y1: 0, x2: 6, y2: 0})]
       ),
       '\n',
       s(
         'pattern#c',
-        {x: 0, y: 0, width: 6, height: 6, patternUnits: 'userSpaceOnUse'},
-        [s('rect', {x: 0, y: 0, width: 1, height: 1})]
+        {height: 6, patternUnits: 'userSpaceOnUse', width: 6, x: 0, y: 0},
+        [s('rect', {height: 1, width: 1, x: 0, y: 0})]
       )
     ]),
     '\n',
-    s('rect.b', {x: 0, y: 0, width: viewBox.width, height: viewBox.height}),
+    s('rect.b', {height: viewBox.height, width: viewBox.width, x: 0, y: 0}),
     '\n',
     s('g', ...rows),
     '\n'

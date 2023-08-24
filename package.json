@@ -65,7 +65,9 @@
   "xo": {
     "prettier": true,
     "rules": {
-      "max-depth": "off"
+      "complexity": "off",
+      "max-depth": "off",
+      "no-await-in-loop": "off"
     }
   }
 }

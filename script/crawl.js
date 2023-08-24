@@ -1,8 +1,11 @@
 /**
  * @typedef {import('pacote').Packument} Packument
  * @typedef {import('pacote').PackumentResult} PackumentResult
- *
- * @typedef {'dual'|'esm'|'faux'|'cjs'} Style
+ */
+
+/**
+ * @typedef {'cjs' | 'dual' | 'esm' | 'faux'} Style
+ *   Style.
  */
 
 import fs from 'node:fs/promises'
@@ -40,11 +43,11 @@ while (true) {
 
   console.log('fetching page: %s, collected total: %s', slice, slice * size)
 
-  const promises = names.map(async (name) => {
+  const promises = names.map(async function (name) {
     const result = await pacote.packument(name, {
       fullMetadata: true,
-      token,
-      preferOffline: true
+      preferOffline: true,
+      token
     })
 
     /** @type {[string, Style]} */
@@ -55,7 +58,6 @@ while (true) {
   /** @type {Array<[string, Style]>} */
   let results
 
-  /* eslint-disable no-await-in-loop */
   try {
     results = await Promise.all(promises)
   } catch (error) {
@@ -64,7 +66,6 @@ while (true) {
     await sleep(10 * 1000)
     continue
   }
-  /* eslint-enable no-await-in-loop */
 
   for (const [name, style] of results) {
     allResults[name] = style
@@ -72,41 +73,49 @@ while (true) {
   }
 
   // Intermediate writes to help debugging and seeing some results early.
-  setTimeout(async () => {
-    await fs.writeFile(destination, JSON.stringify(allResults, null, 2) + '\n')
+  setTimeout(async function () {
+    await fs.writeFile(
+      destination,
+      JSON.stringify(allResults, undefined, 2) + '\n'
+    )
   })
 
   slice++
 }
 
-await fs.writeFile(destination, JSON.stringify(allResults, null, 2) + '\n')
+await fs.writeFile(destination, JSON.stringify(allResults, undefined, 2) + '\n')
 
 console.log('done!')
 
 /**
  * @param {number} ms
- * @returns {Promise<void>}
+ *   Miliseconds to sleep.
+ * @returns {Promise<undefined>}
+ *   Nothing.
  */
 function sleep(ms) {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(), ms)
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve(undefined)
+    }, ms)
   })
 }
 
 /**
  * @param {Packument & PackumentResult} result
+ *   Result.
  * @returns {Style}
+ *   Style.
  */
-// eslint-disable-next-line complexity
 function analyzePackument(result) {
   const latest = (result['dist-tags'] || {}).latest
   const packument = result.versions[latest]
   const {exports, main, type} = packument
-  /** @type {boolean|undefined} */
+  /** @type {boolean | undefined} */
   let cjs
-  /** @type {boolean|undefined} */
+  /** @type {boolean | undefined} */
   let esm
-  /** @type {boolean|undefined} */
+  /** @type {boolean | undefined} */
   let fauxEsm
 
   if (packument.module) {
@@ -155,7 +164,11 @@ function analyzePackument(result) {
 
   /**
    * @param {unknown} value
+   *   Thing.
    * @param {string} path
+   *   Path in `package.json`.
+   * @returns {undefined}
+   *   Nothing.
    */
   function analyzeThing(value, path) {
     if (value && typeof value === 'object') {
@@ -167,14 +180,12 @@ function analyzePackument(result) {
         }
       } else {
         let explicit = false
-        // @ts-expect-error: indexing on object is fine.
-        if (value.import) {
+        if ('import' in value && value.import) {
           explicit = true
           esm = true
         }
 
-        // @ts-expect-error: indexing on object is fine.
-        if (value.require) {
+        if ('require' in value && value.require) {
           explicit = true
           cjs = true
         }
