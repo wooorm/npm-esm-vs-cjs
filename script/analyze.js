@@ -48,7 +48,8 @@ for (const name of datasets) {
   )
 
   /** @type {Record<Style, number>} */
-  const counts = {cjs: 0, dual: 0, esm: 0, faux: 0}
+  // Note: sort order is important.
+  const counts = {esm: 0, dual: 0, faux: 0, cjs: 0}
   let total = 0
 
   for (const name in data) {
