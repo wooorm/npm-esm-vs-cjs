@@ -66,7 +66,7 @@ date,total,esm,dual,faux,cjs
 ## Scripts
 
 This repo includes scripts to crawl npm and analyze the results.
-You need a
+You need a NPM_TOKEN environment variable with a token to crawl npm.
 
 [`script/crawl.js`][crawl] analyzes the `package.json` files of `latest`
 releases of [high-impact][] npm packages.
