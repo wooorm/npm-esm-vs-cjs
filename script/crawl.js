@@ -41,7 +41,12 @@ while (true) {
     break
   }
 
-  console.log('fetching page: %s, collected total: %s', slice, slice * size)
+  console.log(
+    'fetching page: %s, collected total: %s out of %s',
+    slice,
+    slice * size,
+    npmHighImpact.length
+  )
 
   const promises = names.map(async function (name) {
     const result = await pacote.packument(name, {
