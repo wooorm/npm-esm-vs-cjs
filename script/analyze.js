@@ -29,9 +29,12 @@ for (const name of filesRaw) {
 
 /** @type {Array<Element | string>} */
 const rows = []
-const viewBox = {height: 384, width: 1024}
-const styles = datasets.length
 const gutter = 32
+const viewBox = {
+  width: 1024,
+  height: filesRaw.length * (32 + gutter) + gutter
+}
+const styles = datasets.length
 const height = (viewBox.height - gutter * (styles + 1)) / styles
 
 let accumulatedY = gutter
