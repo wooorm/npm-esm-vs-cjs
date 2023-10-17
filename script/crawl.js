@@ -85,6 +85,17 @@ while (true) {
 
 await fs.writeFile(destination, JSON.stringify(allResults, undefined, 2) + '\n')
 
+const now = new Date()
+
+const finalDestination = new URL(
+  `../data/${now.getUTCFullYear()}-${
+    now.getUTCMonth() + 1
+  }-${now.getUTCDate()}.json`,
+  import.meta.url
+)
+
+await fs.rename(destination, finalDestination)
+
 console.log('done!')
 
 /**
