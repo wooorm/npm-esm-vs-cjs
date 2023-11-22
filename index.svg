@@ -1,4 +1,4 @@
-<svg viewBox="0 0 1216 428" xmlns="http://www.w3.org/2000/svg"><title>ESM vs. CJS on npm</title>
+<svg viewBox="0 0 1216 672" xmlns="http://www.w3.org/2000/svg"><title>ESM vs. CJS on npm</title>
 <style>
 text { font-size: 24px; font-weight: bolder; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"; font-variant-numeric: tabular-nums; paint-order: stroke; dominant-baseline: middle; }
 .b { fill: white; }
@@ -24,96 +24,106 @@ pattern rect { fill: #0d1117 }
 <pattern id="a" height="6" patternUnits="userSpaceOnUse" width="6" x="0" y="0"><line x1="0" y1="0" x2="0" y2="6"></line></pattern>
 <pattern id="b" height="6" patternUnits="userSpaceOnUse" width="6" x="0" y="0"><line x1="0" y1="0" x2="6" y2="0"></line></pattern>
 <pattern id="c" height="6" patternUnits="userSpaceOnUse" width="6" x="0" y="0"><rect height="1" width="1" x="0" y="0"></rect></pattern></defs>
-<rect class="b" height="428" width="1216" x="0" y="0"></rect>
+<rect class="b" height="672" width="1216" x="0" y="0"></rect>
 <g><g>
-<rect class="esm" height="12" width="58.280220758411964" x="32" y="32"></rect>
-<rect class="dual" height="12" width="16.23642513797401" x="90.28022075841196" y="32"></rect>
-<rect class="faux" height="12" width="142.19690226099343" x="106.51664589638597" y="32"></rect>
-<rect class="cjs" height="12" width="743.2864518426206" x="248.7135481573794" y="32"></rect>
-<text text-anchor="middle" transform="translate(61.14011037920598, 38) rotate(-45)">6.1%</text>
-<text text-anchor="middle" transform="translate(98.39843332739896, 38) rotate(-45)">1.7%</text>
-<text text-anchor="middle" transform="translate(177.61509702688267, 38)">14.8%</text>
-<text text-anchor="middle" transform="translate(620.3567740786897, 38)">77.4%</text>
-<text x="1024" y="38">2021-08-24</text>
+<rect class="esm" height="32" width="58.280220758411964" x="32" y="32"></rect>
+<rect class="dual" height="32" width="16.23642513797401" x="90.28022075841196" y="32"></rect>
+<rect class="faux" height="32" width="142.19690226099343" x="106.51664589638597" y="32"></rect>
+<rect class="cjs" height="32" width="743.2864518426206" x="248.7135481573794" y="32"></rect>
+<text text-anchor="middle" transform="translate(61.14011037920598, 48) rotate(-45)">6.1%</text>
+<text text-anchor="middle" transform="translate(98.39843332739896, 48) rotate(-45)">1.7%</text>
+<text text-anchor="middle" transform="translate(177.61509702688267, 48)">14.8%</text>
+<text text-anchor="middle" transform="translate(620.3567740786897, 48)">77.4%</text>
+<text x="1024" y="48">2021-08-24</text>
 </g><g>
-<rect class="esm" height="12" width="69.87072782008146" x="32" y="76"></rect>
-<rect class="dual" height="12" width="20.230210731361783" x="101.87072782008146" y="76"></rect>
-<rect class="faux" height="12" width="137.5314326190898" x="122.10093855144324" y="76"></rect>
-<rect class="cjs" height="12" width="732.367628829467" x="259.632371170533" y="76"></rect>
-<text text-anchor="middle" transform="translate(66.93536391004073, 82) rotate(-45)">7.3%</text>
-<text text-anchor="middle" transform="translate(111.98583318576235, 82) rotate(-45)">2.1%</text>
-<text text-anchor="middle" transform="translate(190.86665486098815, 82)">14.3%</text>
-<text text-anchor="middle" transform="translate(625.8161855852666, 82)">76.3%</text>
-<text x="1024" y="82">2021-11-09</text>
+<rect class="esm" height="32" width="69.87072782008146" x="32" y="96"></rect>
+<rect class="dual" height="32" width="20.230210731361783" x="101.87072782008146" y="96"></rect>
+<rect class="faux" height="32" width="137.5314326190898" x="122.10093855144324" y="96"></rect>
+<rect class="cjs" height="32" width="732.367628829467" x="259.632371170533" y="96"></rect>
+<text text-anchor="middle" transform="translate(66.93536391004073, 112) rotate(-45)">7.3%</text>
+<text text-anchor="middle" transform="translate(111.98583318576235, 112) rotate(-45)">2.1%</text>
+<text text-anchor="middle" transform="translate(190.86665486098815, 112)">14.3%</text>
+<text text-anchor="middle" transform="translate(625.8161855852666, 112)">76.3%</text>
+<text x="1024" y="112">2021-11-09</text>
 </g><g>
-<rect class="esm" height="12" width="74.11888849806542" x="32" y="120"></rect>
-<rect class="dual" height="12" width="25.156524797748858" x="106.11888849806542" y="120"></rect>
-<rect class="faux" height="12" width="136.58811115019347" x="131.27541329581427" y="120"></rect>
-<rect class="cjs" height="12" width="724.1364755539922" x="267.8635244460078" y="120"></rect>
-<text text-anchor="middle" transform="translate(69.05944424903271, 126) rotate(-45)">7.7%</text>
-<text text-anchor="middle" transform="translate(118.69715089693985, 126) rotate(-45)">2.6%</text>
-<text text-anchor="middle" transform="translate(199.569468870911, 126)">14.2%</text>
-<text text-anchor="middle" transform="translate(629.931762223004, 126)">75.4%</text>
-<text x="1024" y="126">2022-01-27</text>
+<rect class="esm" height="32" width="74.11888849806542" x="32" y="160"></rect>
+<rect class="dual" height="32" width="25.156524797748858" x="106.11888849806542" y="160"></rect>
+<rect class="faux" height="32" width="136.58811115019347" x="131.27541329581427" y="160"></rect>
+<rect class="cjs" height="32" width="724.1364755539922" x="267.8635244460078" y="160"></rect>
+<text text-anchor="middle" transform="translate(69.05944424903271, 176) rotate(-45)">7.7%</text>
+<text text-anchor="middle" transform="translate(118.69715089693985, 176) rotate(-45)">2.6%</text>
+<text text-anchor="middle" transform="translate(199.569468870911, 176)">14.2%</text>
+<text text-anchor="middle" transform="translate(629.931762223004, 176)">75.4%</text>
+<text x="1024" y="176">2022-01-27</text>
 </g><g>
-<rect class="esm" height="12" width="83.0415068015347" x="32" y="164"></rect>
-<rect class="dual" height="12" width="34.65643529822113" x="115.0415068015347" y="164"></rect>
-<rect class="faux" height="12" width="132.43111266131845" x="149.69794209975583" y="164"></rect>
-<rect class="cjs" height="12" width="709.8709452389257" x="282.12905476107426" y="164"></rect>
-<text text-anchor="middle" transform="translate(73.52075340076735, 170) rotate(-45)">8.7%</text>
-<text text-anchor="middle" transform="translate(132.36972445064526, 170) rotate(-45)">3.6%</text>
-<text text-anchor="middle" transform="translate(215.91349843041507, 170)">13.8%</text>
-<text text-anchor="middle" transform="translate(637.0645273805371, 170)">73.9%</text>
-<text x="1024" y="170">2022-08-01</text>
+<rect class="esm" height="32" width="83.0415068015347" x="32" y="224"></rect>
+<rect class="dual" height="32" width="34.65643529822113" x="115.0415068015347" y="224"></rect>
+<rect class="faux" height="32" width="132.43111266131845" x="149.69794209975583" y="224"></rect>
+<rect class="cjs" height="32" width="709.8709452389257" x="282.12905476107426" y="224"></rect>
+<text text-anchor="middle" transform="translate(73.52075340076735, 240) rotate(-45)">8.7%</text>
+<text text-anchor="middle" transform="translate(132.36972445064526, 240) rotate(-45)">3.6%</text>
+<text text-anchor="middle" transform="translate(215.91349843041507, 240)">13.8%</text>
+<text text-anchor="middle" transform="translate(637.0645273805371, 240)">73.9%</text>
+<text x="1024" y="240">2022-08-01</text>
 </g><g>
-<rect class="esm" height="12" width="86.52862362971985" x="32" y="208"></rect>
-<rect class="dual" height="12" width="36.08143379154342" x="118.52862362971985" y="208"></rect>
-<rect class="faux" height="12" width="131.12928484426658" x="154.61005742126326" y="208"></rect>
-<rect class="cjs" height="12" width="706.2606577344701" x="285.73934226552984" y="208"></rect>
-<text text-anchor="middle" transform="translate(75.26431181485992, 214) rotate(-45)">9.0%</text>
-<text text-anchor="middle" transform="translate(136.56934052549155, 214) rotate(-45)">3.8%</text>
-<text text-anchor="middle" transform="translate(220.17469984339655, 214)">13.7%</text>
-<text text-anchor="middle" transform="translate(638.8696711327649, 214)">73.6%</text>
-<text x="1024" y="214">2022-11-04</text>
+<rect class="esm" height="32" width="86.52862362971985" x="32" y="288"></rect>
+<rect class="dual" height="32" width="36.08143379154342" x="118.52862362971985" y="288"></rect>
+<rect class="faux" height="32" width="131.12928484426658" x="154.61005742126326" y="288"></rect>
+<rect class="cjs" height="32" width="706.2606577344701" x="285.73934226552984" y="288"></rect>
+<text text-anchor="middle" transform="translate(75.26431181485992, 304) rotate(-45)">9.0%</text>
+<text text-anchor="middle" transform="translate(136.56934052549155, 304) rotate(-45)">3.8%</text>
+<text text-anchor="middle" transform="translate(220.17469984339655, 304)">13.7%</text>
+<text text-anchor="middle" transform="translate(638.8696711327649, 304)">73.6%</text>
+<text x="1024" y="304">2022-11-04</text>
 </g><g>
-<rect class="esm" height="12" width="89.61051766639277" x="32" y="252"></rect>
-<rect class="dual" height="12" width="40.230073952341826" x="121.61051766639277" y="252"></rect>
-<rect class="faux" height="12" width="135.04683648315532" x="161.8405916187346" y="252"></rect>
-<rect class="cjs" height="12" width="695.1125718981101" x="296.8874281018899" y="252"></rect>
-<text text-anchor="middle" transform="translate(76.80525883319638, 258) rotate(-45)">9.3%</text>
-<text text-anchor="middle" transform="translate(141.72555464256368, 258) rotate(-45)">4.2%</text>
-<text text-anchor="middle" transform="translate(229.36400986031225, 258)">14.1%</text>
-<text text-anchor="middle" transform="translate(644.4437140509449, 258)">72.4%</text>
-<text x="1024" y="258">2023-02-06</text>
+<rect class="esm" height="32" width="89.61051766639277" x="32" y="352"></rect>
+<rect class="dual" height="32" width="40.230073952341826" x="121.61051766639277" y="352"></rect>
+<rect class="faux" height="32" width="135.04683648315532" x="161.8405916187346" y="352"></rect>
+<rect class="cjs" height="32" width="695.1125718981101" x="296.8874281018899" y="352"></rect>
+<text text-anchor="middle" transform="translate(76.80525883319638, 368) rotate(-45)">9.3%</text>
+<text text-anchor="middle" transform="translate(141.72555464256368, 368) rotate(-45)">4.2%</text>
+<text text-anchor="middle" transform="translate(229.36400986031225, 368)">14.1%</text>
+<text text-anchor="middle" transform="translate(644.4437140509449, 368)">72.4%</text>
+<text x="1024" y="368">2023-02-06</text>
 </g><g>
-<rect class="esm" height="12" width="96.92307692307692" x="32" y="296"></rect>
-<rect class="dual" height="12" width="64.15384615384615" x="128.9230769230769" y="296"></rect>
-<rect class="faux" height="12" width="120.46153846153845" x="193.07692307692304" y="296"></rect>
-<rect class="cjs" height="12" width="678.4615384615385" x="313.5384615384615" y="296"></rect>
-<text text-anchor="middle" transform="translate(80.46153846153845, 302) rotate(-45)">10.1%</text>
-<text text-anchor="middle" transform="translate(160.99999999999997, 302) rotate(-45)">6.7%</text>
-<text text-anchor="middle" transform="translate(253.30769230769226, 302) rotate(-45)">12.5%</text>
-<text text-anchor="middle" transform="translate(652.7692307692307, 302)">70.7%</text>
-<text x="1024" y="302">2023-05-29</text>
+<rect class="esm" height="32" width="96.92307692307692" x="32" y="416"></rect>
+<rect class="dual" height="32" width="64.15384615384615" x="128.9230769230769" y="416"></rect>
+<rect class="faux" height="32" width="120.46153846153845" x="193.07692307692304" y="416"></rect>
+<rect class="cjs" height="32" width="678.4615384615385" x="313.5384615384615" y="416"></rect>
+<text text-anchor="middle" transform="translate(80.46153846153845, 432) rotate(-45)">10.1%</text>
+<text text-anchor="middle" transform="translate(160.99999999999997, 432) rotate(-45)">6.7%</text>
+<text text-anchor="middle" transform="translate(253.30769230769226, 432) rotate(-45)">12.5%</text>
+<text text-anchor="middle" transform="translate(652.7692307692307, 432)">70.7%</text>
+<text x="1024" y="432">2023-05-29</text>
 </g><g>
-<rect class="esm" height="12" width="97.79385171790236" x="32" y="340"></rect>
-<rect class="dual" height="12" width="68.42676311030742" x="129.79385171790236" y="340"></rect>
-<rect class="faux" height="12" width="126.72694394213381" x="198.22061482820976" y="340"></rect>
-<rect class="cjs" height="12" width="667.0524412296563" x="324.94755877034356" y="340"></rect>
-<text text-anchor="middle" transform="translate(80.89692585895118, 346) rotate(-45)">10.2%</text>
-<text text-anchor="middle" transform="translate(164.00723327305607, 346) rotate(-45)">7.1%</text>
-<text text-anchor="middle" transform="translate(261.5840867992767, 346) rotate(-45)">13.2%</text>
-<text text-anchor="middle" transform="translate(658.4737793851717, 346)">69.5%</text>
-<text x="1023.9999999999999" y="346">2023-08-24</text>
+<rect class="esm" height="32" width="97.79385171790236" x="32" y="480"></rect>
+<rect class="dual" height="32" width="68.42676311030742" x="129.79385171790236" y="480"></rect>
+<rect class="faux" height="32" width="126.72694394213381" x="198.22061482820976" y="480"></rect>
+<rect class="cjs" height="32" width="667.0524412296563" x="324.94755877034356" y="480"></rect>
+<text text-anchor="middle" transform="translate(80.89692585895118, 496) rotate(-45)">10.2%</text>
+<text text-anchor="middle" transform="translate(164.00723327305607, 496) rotate(-45)">7.1%</text>
+<text text-anchor="middle" transform="translate(261.5840867992767, 496) rotate(-45)">13.2%</text>
+<text text-anchor="middle" transform="translate(658.4737793851717, 496)">69.5%</text>
+<text x="1023.9999999999999" y="496">2023-08-24</text>
+</g><g>
+<rect class="esm" height="32" width="103.34995599882663" x="32" y="544"></rect>
+<rect class="dual" height="32" width="71.80991493106482" x="135.34995599882663" y="544"></rect>
+<rect class="faux" height="32" width="124.04810794954531" x="207.15987092989144" y="544"></rect>
+<rect class="cjs" height="32" width="660.7920211205632" x="331.2079788794367" y="544"></rect>
+<text text-anchor="middle" transform="translate(83.67497799941331, 560) rotate(-45)">10.8%</text>
+<text text-anchor="middle" transform="translate(171.25491346435905, 560) rotate(-45)">7.5%</text>
+<text text-anchor="middle" transform="translate(269.1839249046641, 560) rotate(-45)">12.9%</text>
+<text text-anchor="middle" transform="translate(661.6039894397184, 560)">68.8%</text>
+<text x="1023.9999999999999" y="560">2023-11-22</text>
 </g>
 <g>
-<rect class="esm" height="12" width="96" x="32" y="384"></rect>
-<rect class="dual" height="12" width="96" x="160" y="384"></rect>
-<rect class="faux" height="12" width="96" x="288" y="384"></rect>
-<rect class="cjs" height="12" width="96" x="416" y="384"></rect>
-<text text-anchor="middle" transform="translate(80, 390)">esm</text>
-<text text-anchor="middle" transform="translate(208, 390)">dual</text>
-<text text-anchor="middle" transform="translate(336, 390)">faux</text>
-<text text-anchor="middle" transform="translate(464, 390)">cjs</text></g>
+<rect class="esm" height="32" width="96" x="32" y="608"></rect>
+<rect class="dual" height="32" width="96" x="160" y="608"></rect>
+<rect class="faux" height="32" width="96" x="288" y="608"></rect>
+<rect class="cjs" height="32" width="96" x="416" y="608"></rect>
+<text text-anchor="middle" transform="translate(80, 624)">esm</text>
+<text text-anchor="middle" transform="translate(208, 624)">dual</text>
+<text text-anchor="middle" transform="translate(336, 624)">faux</text>
+<text text-anchor="middle" transform="translate(464, 624)">cjs</text></g>
 </g>
 </svg>
