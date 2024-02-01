@@ -26,7 +26,13 @@ if (!token) {
 
 let slice = 0
 const size = 20
-const destination = new URL('../data/latest.json', import.meta.url)
+const now = new Date()
+const destination = new URL(
+  `../data/${now.getUTCFullYear()}-${
+    now.getUTCMonth() + 1
+  }-${now.getUTCDate()}.json`,
+  import.meta.url
+)
 
 /** @type {Record<string, Style>} */
 const allResults = {}
