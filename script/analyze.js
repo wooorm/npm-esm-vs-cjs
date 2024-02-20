@@ -16,9 +16,9 @@ const filesRaw = await fs.readdir(new URL('../data', import.meta.url))
 const datasets = []
 
 for (const name of filesRaw) {
-  const ext = path.extname(name)
-  if (ext === '.json') {
-    const base = path.basename(name, ext)
+  const extension = path.extname(name)
+  if (extension === '.json') {
+    const base = path.basename(name, extension)
 
     // Only check date and `latest`.
     if (/^\d{4}-\d{2}-\d{2}/.test(base) || base === 'latest') {
