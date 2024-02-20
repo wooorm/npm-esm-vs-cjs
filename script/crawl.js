@@ -28,9 +28,13 @@ let slice = 0
 const size = 20
 const now = new Date()
 const destination = new URL(
-  `../data/${now.getUTCFullYear()}-${
-    now.getUTCMonth() + 1
-  }-${now.getUTCDate()}.json`,
+  '../data/' +
+    String(now.getUTCFullYear()).padStart(4, '0') +
+    '-' +
+    String(now.getUTCMonth() + 1).padStart(2, '0') +
+    '-' +
+    String(now.getUTCDate()).padStart(2, '0') +
+    '.json',
   import.meta.url
 )
 
