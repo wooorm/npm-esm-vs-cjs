@@ -195,13 +195,19 @@ function analyzePackument(result) {
         }
       } else {
         let explicit = false
-        if ('import' in value && value.import) {
+        const conditionImport = Boolean('import' in value && value.import)
+        const conditionRequire = Boolean('require' in value && value.require)
+        const conditionDefault = Boolean('default' in value && value.default)
+
+        if (conditionImport || conditionRequire) {
           explicit = true
+        }
+
+        if (conditionImport || (conditionRequire && conditionDefault)) {
           esm = true
         }
 
-        if ('require' in value && value.require) {
-          explicit = true
+        if (conditionRequire || (conditionImport && conditionDefault)) {
           cjs = true
         }
 
