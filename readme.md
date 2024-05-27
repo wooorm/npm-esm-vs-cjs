@@ -49,7 +49,11 @@ date,total,esm,dual,faux,cjs
 2023-08-24,6636,676,473,876,4611
 2023-11-22,6818,734,510,881,4693
 2024-02-20,7042,826,594,893,4729
+2024-05-27,7042,819,736,826,4661
 ```
+
+> 👉 **Note**: the crawl of `2024-05-27` adjusts several packages that were
+> previously classified incorrectly as dual.
 
 > 👉 **Note**: crawls from before 2022-11-04 use the list of popular packages
 > on the date of 2022-11-04, as I had the results of all packages, but not which

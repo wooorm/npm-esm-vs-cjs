@@ -1,4 +1,4 @@
-<svg viewBox="0 0 1216 736" xmlns="http://www.w3.org/2000/svg"><title>ESM vs. CJS on npm</title>
+<svg viewBox="0 0 1216 800" xmlns="http://www.w3.org/2000/svg"><title>ESM vs. CJS on npm</title>
 <style>
 text { font-size: 24px; font-weight: bolder; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"; font-variant-numeric: tabular-nums; paint-order: stroke; dominant-baseline: middle; }
 .b { fill: white; }
@@ -24,7 +24,7 @@ pattern rect { fill: #0d1117 }
 <pattern id="a" height="6" patternUnits="userSpaceOnUse" width="6" x="0" y="0"><line x1="0" y1="0" x2="0" y2="6"></line></pattern>
 <pattern id="b" height="6" patternUnits="userSpaceOnUse" width="6" x="0" y="0"><line x1="0" y1="0" x2="6" y2="0"></line></pattern>
 <pattern id="c" height="6" patternUnits="userSpaceOnUse" width="6" x="0" y="0"><rect height="1" width="1" x="0" y="0"></rect></pattern></defs>
-<rect class="b" height="736" width="1216" x="0" y="0"></rect>
+<rect class="b" height="800" width="1216" x="0" y="0"></rect>
 <g><g>
 <rect class="esm" height="32" width="58.280220758411964" x="32" y="32"></rect>
 <rect class="dual" height="32" width="16.23642513797401" x="90.28022075841196" y="32"></rect>
@@ -125,15 +125,25 @@ pattern rect { fill: #0d1117 }
 <text text-anchor="middle" transform="translate(286.4504402158478, 624) rotate(-45)">12.7%</text>
 <text text-anchor="middle" transform="translate(669.6597557512071, 624)">67.2%</text>
 <text x="1024" y="624">2024-02-20</text>
+</g><g>
+<rect class="esm" height="32" width="111.65009940357852" x="32" y="672"></rect>
+<rect class="dual" height="32" width="100.33513206475433" x="143.6500994035785" y="672"></rect>
+<rect class="faux" height="32" width="112.60437375745526" x="243.98523146833284" y="672"></rect>
+<rect class="cjs" height="32" width="635.4103947742118" x="356.5896052257881" y="672"></rect>
+<text text-anchor="middle" transform="translate(87.82504970178925, 688) rotate(-45)">11.6%</text>
+<text text-anchor="middle" transform="translate(193.8176654359557, 688) rotate(-45)">10.5%</text>
+<text text-anchor="middle" transform="translate(300.28741834706045, 688) rotate(-45)">11.7%</text>
+<text text-anchor="middle" transform="translate(674.294802612894, 688)">66.2%</text>
+<text x="1023.9999999999999" y="688">2024-05-27</text>
 </g>
 <g>
-<rect class="esm" height="32" width="96" x="32" y="672"></rect>
-<rect class="dual" height="32" width="96" x="160" y="672"></rect>
-<rect class="faux" height="32" width="96" x="288" y="672"></rect>
-<rect class="cjs" height="32" width="96" x="416" y="672"></rect>
-<text text-anchor="middle" transform="translate(80, 688)">esm</text>
-<text text-anchor="middle" transform="translate(208, 688)">dual</text>
-<text text-anchor="middle" transform="translate(336, 688)">faux</text>
-<text text-anchor="middle" transform="translate(464, 688)">cjs</text></g>
+<rect class="esm" height="32" width="96" x="32" y="736"></rect>
+<rect class="dual" height="32" width="96" x="160" y="736"></rect>
+<rect class="faux" height="32" width="96" x="288" y="736"></rect>
+<rect class="cjs" height="32" width="96" x="416" y="736"></rect>
+<text text-anchor="middle" transform="translate(80, 752)">esm</text>
+<text text-anchor="middle" transform="translate(208, 752)">dual</text>
+<text text-anchor="middle" transform="translate(336, 752)">faux</text>
+<text text-anchor="middle" transform="translate(464, 752)">cjs</text></g>
 </g>
 </svg>
