@@ -6,23 +6,23 @@ Data on the share of ESM vs CJS on the public npm registry.
 
 ## Contents
 
-*   [What is this?](#what-is-this)
-*   [When should I use this?](#when-should-i-use-this)
-*   [Data](#data)
-*   [Scripts](#scripts)
-*   [Contribute](#contribute)
-*   [Security](#security)
-*   [License](#license)
+* [What is this?](#what-is-this)
+* [When should I use this?](#when-should-i-use-this)
+* [Data](#data)
+* [Scripts](#scripts)
+* [Contribute](#contribute)
+* [Security](#security)
+* [License](#license)
 
 ## What is this?
 
 This repository contains (historical) data on [high-impact][] (popular) packages
 and what kind of code they expose:
 
-*   ESM — such as `type: 'module'` in `package.json`
-*   Dual — such as both `import` and `require` conditions in export map
-*   Faux ESM — `module` field in `package.json`, supported by some old bundlers
-*   CJS — anything else (except for `@types/*`)
+* ESM — such as `type: 'module'` in `package.json`
+* Dual — such as both `import` and `require` conditions in export map
+* Faux ESM — `module` field in `package.json`, supported by some old bundlers
+* CJS — anything else (except for `@types/*`)
 
 ## When should I use this?
 
