@@ -37,10 +37,10 @@ const destination = new URL(
   import.meta.url
 )
 
-/** @type {Record<string, Style>} */
+/** @type {Record<string, Style | undefined>} */
 const allResults = {}
 
-console.log('fetching %s packages', npmHighImpact.length)
+console.error('fetching %s packages', npmHighImpact.length)
 
 // eslint-disable-next-line no-constant-condition
 while (true) {
@@ -50,7 +50,7 @@ while (true) {
     break
   }
 
-  console.log(
+  console.error(
     'fetching page: %s, collected total: %s out of %s',
     slice,
     slice * size,
@@ -58,32 +58,42 @@ while (true) {
   )
 
   const promises = names.map(async function (name) {
-    const result = await pacote.packument(name, {
-      fullMetadata: true,
-      preferOffline: true,
-      token
-    })
+    /** @type {Packument & PackumentResult} */
+    let result
 
-    /** @type {[string, Style]} */
+    try {
+      result = await pacote.packument(name, {
+        fullMetadata: true,
+        preferOffline: true,
+        token
+      })
+    } catch (error) {
+      console.error('package w/ error: %s, likely spam: %s', name, error)
+      /** @type {[string, Style | undefined]} */
+      const info = [name, undefined]
+      return info
+    }
+
+    /** @type {[string, Style | undefined]} */
     const info = [name, analyzePackument(result)]
     return info
   })
 
-  /** @type {Array<[string, Style]>} */
+  /** @type {Array<[string, Style | undefined]>} */
   let results
 
   try {
     results = await Promise.all(promises)
   } catch (error) {
-    console.log(error)
-    console.log('sleeping for 10s…')
+    console.error(error)
+    console.error('sleeping for 10s…')
     await sleep(10 * 1000)
     continue
   }
 
   for (const [name, style] of results) {
     allResults[name] = style
-    console.log('  add: %s (%s)', name, style)
+    console.error('  add: %s (%s)', name, style)
   }
 
   // Intermediate writes to help debugging and seeing some results early.
@@ -99,7 +109,7 @@ while (true) {
 
 await fs.writeFile(destination, JSON.stringify(allResults, undefined, 2) + '\n')
 
-console.log('done!')
+console.error('done!')
 
 /**
  * @param {number} ms
@@ -118,12 +128,19 @@ function sleep(ms) {
 /**
  * @param {Packument & PackumentResult} result
  *   Result.
- * @returns {Style}
+ * @returns {Style | undefined}
  *   Style.
  */
 function analyzePackument(result) {
   const latest = (result['dist-tags'] || {}).latest
-  const packument = result.versions[latest]
+
+  // Some spam packages were removed. They might still be in the list tho.
+  if (!latest) {
+    console.error('package w/o `latest`: %s, likely spam', result.name)
+    return
+  }
+
+  const packument = (result.versions || {})[latest]
   const {exports, main, type} = packument
   /** @type {boolean | undefined} */
   let cjs
@@ -223,8 +240,12 @@ function analyzePackument(result) {
     } else if (typeof value === 'string') {
       if (/\.mjs$/.test(value)) esm = true
       if (/\.cjs$/.test(value)) cjs = true
+    } else if (value === null) {
+      // Something explicitly not available,
+      // for a particular condition,
+      // or before a glob which would allow it.
     } else {
-      console.log('unknown:', [value], path)
+      console.error('unknown:', [value], path)
     }
   }
 }
