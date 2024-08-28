@@ -1,7 +1,6 @@
 /**
- * @typedef {import('hast').Element} Element
- *
- * @typedef {import('./crawl.js').Style} Style
+ * @import {Element} from 'hast'
+ * @import {Style} from './crawl.js'
  */
 
 import fs from 'node:fs/promises'

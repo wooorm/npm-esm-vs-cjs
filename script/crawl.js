@@ -1,6 +1,5 @@
 /**
- * @typedef {import('pacote').Packument} Packument
- * @typedef {import('pacote').PackumentResult} PackumentResult
+ * @import {PackumentResult, Packument} from 'pacote'
  */
 
 /**
