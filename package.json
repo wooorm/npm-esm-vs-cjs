@@ -23,7 +23,7 @@
   "devDependencies": {
     "@types/d3-dsv": "^3.0.0",
     "@types/hast": "^3.0.0",
-    "@types/node": "^20.0.0",
+    "@types/node": "^22.0.0",
     "@types/pacote": "^11.0.0",
     "d3-dsv": "^3.0.0",
     "dotenv": "^16.0.0",
@@ -36,7 +36,7 @@
     "remark-preset-wooorm": "^10.0.0",
     "type-coverage": "^2.0.0",
     "typescript": "^5.0.0",
-    "xo": "^0.58.0"
+    "xo": "^0.59.0"
   },
   "scripts": {
     "build": "tsc --build --clean && tsc --build && type-coverage",
