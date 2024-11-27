@@ -205,8 +205,10 @@ function analyzePackument(result) {
           analyzeThing(values[index], path + '[' + index + ']')
         }
       } else {
+        // Cast as indexing on object is fine.
+        const record = /** @type {Record<string, unknown>} */ (value)
         let dots = false
-        for (const [key, subvalue] of Object.entries(value)) {
+        for (const [key, subvalue] of Object.entries(record)) {
           if (key.charAt(0) !== '.') break
           analyzeThing(subvalue, path + '["' + key + '"]')
           dots = true
@@ -215,9 +217,9 @@ function analyzePackument(result) {
         if (dots) return
 
         let explicit = false
-        const conditionImport = Boolean('import' in value && value.import)
-        const conditionRequire = Boolean('require' in value && value.require)
-        const conditionDefault = Boolean('default' in value && value.default)
+        const conditionImport = Boolean('import' in record && record.import)
+        const conditionRequire = Boolean('require' in record && record.require)
+        const conditionDefault = Boolean('default' in record && record.default)
 
         if (conditionImport || conditionRequire) {
           explicit = true
@@ -231,10 +233,7 @@ function analyzePackument(result) {
           cjs = true
         }
 
-        const defaults = /** @type {unknown} */ (
-          // @ts-expect-error: indexing on object is fine.
-          value.node || value.default
-        )
+        const defaults = record.node || record.default
 
         if (typeof defaults === 'string' && !explicit) {
           if (/\.mjs$/.test(defaults)) esm = true
