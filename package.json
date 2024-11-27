@@ -30,7 +30,7 @@
     "hast-util-to-html": "^9.0.0",
     "hastscript": "^9.0.0",
     "npm-high-impact": "^1.0.0",
-    "pacote": "^18.0.0",
+    "pacote": "^21.0.0",
     "prettier": "^3.0.0",
     "remark-cli": "^12.0.0",
     "remark-preset-wooorm": "^10.0.0",
