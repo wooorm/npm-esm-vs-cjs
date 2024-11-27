@@ -1,7 +1,3 @@
-name: main
-on:
-  - pull_request
-  - push
 jobs:
   main:
     name: node
@@ -13,3 +9,7 @@ jobs:
           node-version: node
       - run: npm install
       - run: npm test
+name: main
+on:
+  - pull_request
+  - push
