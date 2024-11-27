@@ -158,12 +158,7 @@ function analyzePackument(result) {
     for (const exportId in exports) {
       if (Object.hasOwn(exports, exportId) && typeof exportId === 'string') {
         // @ts-expect-error: indexing on object is fine.
-        let value = /** @type {unknown} */ (exports[exportId])
-
-        if (exportId.charAt(0) !== '.') {
-          value = {'.': value}
-        }
-
+        const value = /** @type {unknown} */ (exports[exportId])
         analyzeThing(value, packument.name + '#exports')
       }
     }
@@ -210,6 +205,15 @@ function analyzePackument(result) {
           analyzeThing(values[index], path + '[' + index + ']')
         }
       } else {
+        let dots = false
+        for (const [key, subvalue] of Object.entries(value)) {
+          if (key.charAt(0) !== '.') break
+          analyzeThing(subvalue, path + '["' + key + '"]')
+          dots = true
+        }
+
+        if (dots) return
+
         let explicit = false
         const conditionImport = Boolean('import' in value && value.import)
         const conditionRequire = Boolean('require' in value && value.require)
