@@ -175,13 +175,17 @@ function analyzePackument(result) {
   }
 
   // If there are no explicit exports:
-  if (cjs === undefined && esm === undefined) {
-    if (type === 'module' || (main && /\.mjs$/.test(main))) {
+  if (cjs === undefined && esm === undefined && main) {
+    if (type === 'module' || /\.mjs$/.test(main)) {
       esm = true
     } else {
       cjs = true
     }
   }
+
+  // No `main` or `exports` or `module` or `type`, likely a type-only or cli-only package
+  if (!esm && !cjs)
+    return undefined
 
   /** @type {Style} */
   const style = esm && cjs ? 'dual' : esm ? 'esm' : fauxEsm ? 'faux' : 'cjs'
