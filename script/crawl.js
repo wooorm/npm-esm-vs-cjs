@@ -224,14 +224,8 @@ function analyzePackument(result) {
   }
 
   // Check exports map.
-  if (exports && typeof exports === 'object') {
-    for (const exportId in exports) {
-      if (Object.hasOwn(exports, exportId) && typeof exportId === 'string') {
-        // @ts-expect-error: indexing on object is fine.
-        const value = /** @type {unknown} */ (exports[exportId])
-        analyzeThing(value, packument.name + '#exports')
-      }
-    }
+  if (exports) {
+    analyzeThing(exports, packument.name + '#exports')
   }
 
   // Explicit `commonjs` set, with a explicit `import` or `.mjs` too.
