@@ -1,6 +1,6 @@
 # npm-esm-vs-cjs
 
-[![Build][build-badge]][build]
+[![Build][badge-build-image]][badge-build-url]
 
 Data on the share of ESM vs CJS on the public npm registry.
 
@@ -16,8 +16,9 @@ Data on the share of ESM vs CJS on the public npm registry.
 
 ## What is this?
 
-This repository contains (historical) data on [high-impact][] (popular) packages
-and what kind of code they expose:
+This repository contains (historical) data on
+[high-impact][github-npm-high-impact] (popular)
+packages and what kind of code they expose:
 
 * ESM — such as `type: 'module'` in `package.json`
 * dual — such as both `import` and `require` conditions in export map
@@ -32,13 +33,13 @@ The data isn’t perfect though.
 
 ## Data
 
-[`index.svg`][svg]:
+[`index.svg`][file-svg]:
 
-![][svg]
+![][file-svg]
 
-[`index.csv`][csv]:
+[`index.csv`][file-csv]:
 
-```csv
+```text
 date,total,esm,dual,faux,cjs
 2021-08-24,5617,341,95,832,4349
 2021-11-09,5647,411,119,809,4308
@@ -83,21 +84,21 @@ date,total,esm,dual,faux,cjs
 This repo includes scripts to crawl npm and analyze the results.
 You need a `NPM_TOKEN` environment variable with a token to crawl npm.
 
-[`script/crawl.js`][crawl] analyzes the `package.json` files of `latest`
-releases of [high-impact][] npm packages.
+[`script/crawl.js`][file-script-crawl] analyzes the `package.json` files of
+`latest` releases of [high-impact][github-npm-high-impact] npm packages.
 This script finishes in about 5 minutes.
 You should likely first contribute to `npm-high-impact`,
 which can take like 24 hours to complete.
 
-[`script/analyze.js`][analyze] analyzes the data files and generates SVG and
-CSV files from them.
+[`script/analyze.js`][file-script-analyze] analyzes the data files and
+generates SVG and CSV files from them.
 After running that,
 please copy/paste the new `.csv` into this readme above.
 
 ## Contribute
 
 Yes please!
-See [How to Contribute to Open Source][contribute].
+See [*How to Contribute to Open Source*][opensource-guide-contribute].
 
 ## Security
 
@@ -105,26 +106,26 @@ This package is safe.
 
 ## License
 
-[MIT][license] © [Titus Wormer][author]
+[MIT][file-license] © [Titus Wormer][wooorm]
 
 <!-- Definitions -->
 
-[build-badge]: https://github.com/wooorm/npm-esm-vs-cjs/workflows/main/badge.svg
+[badge-build-image]: https://github.com/wooorm/npm-esm-vs-cjs/workflows/main/badge.svg
 
-[build]: https://github.com/wooorm/npm-esm-vs-cjs/actions
+[badge-build-url]: https://github.com/wooorm/npm-esm-vs-cjs/actions
 
-[contribute]: https://opensource.guide/how-to-contribute/
+[file-csv]: index.csv
 
-[license]: license
+[file-license]: license
 
-[author]: https://wooorm.com
+[file-script-analyze]: script/analyze.js
 
-[high-impact]: https://github.com/wooorm/npm-high-impact
+[file-script-crawl]: script/crawl.js
 
-[crawl]: script/crawl.js
+[file-svg]: index.svg
 
-[analyze]: script/analyze.js
+[github-npm-high-impact]: https://github.com/wooorm/npm-high-impact
 
-[svg]: index.svg
+[opensource-guide-contribute]: https://opensource.guide/how-to-contribute/
 
-[csv]: index.csv
+[wooorm]: https://wooorm.com
