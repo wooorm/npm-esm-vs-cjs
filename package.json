@@ -1,25 +1,10 @@
 {
-  "name": "npm-esm-vs-cjs",
-  "private": true,
-  "description": "Data on the share of ESM vs CJS on the public npm registry",
-  "license": "MIT",
-  "keywords": [
-    "cjs",
-    "esm",
-    "npm"
-  ],
-  "repository": "wooorm/npm-esm-vs-cjs",
-  "bugs": "https://github.com/wooorm/npm-esm-vs-cjs/issues",
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/wooorm"
-  },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+  "bugs": "https://github.com/wooorm/npm-esm-vs-cjs/issues",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
-  "type": "module",
-  "exports": [],
+  "description": "Data on the share of ESM vs CJS on the public npm registry",
   "devDependencies": {
     "@types/d3-dsv": "^3.0.0",
     "@types/hast": "^3.0.0",
@@ -38,11 +23,18 @@
     "typescript": "^5.0.0",
     "xo": "^0.60.0"
   },
-  "scripts": {
-    "build": "tsc --build --clean && tsc --build && type-coverage",
-    "format": "remark . --frail --output --quiet && prettier . --log-level warn --write && xo --fix",
-    "test": "npm run build && npm run format"
+  "exports": [],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/wooorm"
   },
+  "keywords": [
+    "cjs",
+    "esm",
+    "npm"
+  ],
+  "license": "MIT",
+  "name": "npm-esm-vs-cjs",
   "prettier": {
     "bracketSpacing": false,
     "singleQuote": true,
@@ -51,17 +43,23 @@
     "trailingComma": "none",
     "useTabs": false
   },
+  "private": true,
   "remarkConfig": {
     "plugins": [
       "remark-preset-wooorm"
     ]
   },
+  "repository": "wooorm/npm-esm-vs-cjs",
+  "scripts": {
+    "build": "tsc --build --clean && tsc --build && type-coverage",
+    "format": "remark --frail --output --quiet -- . && prettier --log-level warn --write -- . && xo --fix",
+    "test": "npm run build && npm run format"
+  },
   "typeCoverage": {
     "atLeast": 100,
-    "detail": true,
-    "ignoreCatch": true,
     "strict": true
   },
+  "type": "module",
   "xo": {
     "prettier": true,
     "rules": {
