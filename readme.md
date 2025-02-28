@@ -54,7 +54,7 @@ date,total,esm,dual,faux,cjs
 2024-05-27,7042,819,736,826,4661
 2024-08-28,7638,923,876,876,4963
 2024-11-27,8087,942,1152,843,5150
-2025-02-28,8750,1005,1399,882,5464
+2025-02-28,8472,1006,1398,882,5186
 ```
 
 > 👉 **Note**:
@@ -62,8 +62,8 @@ date,total,esm,dual,faux,cjs
 > previously classified incorrectly as dual.
 
 > 👉 **Note**:
-> crawls from before 2022-11-04 use the list of popular packages
-> on the date of 2022-11-04,
+> crawls from before `2022-11-04` use the list of popular packages
+> on the date of `2022-11-04`,
 > as I had the results of all packages,
 > but not which of them were popular back then.
 > Later dates will use a list of what’s popular on that date.

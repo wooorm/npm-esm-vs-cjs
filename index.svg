@@ -156,14 +156,14 @@ pattern rect { fill: #0d1117 }
 <text text-anchor="middle" transform="translate(686.3242240633115, 816)">63.7%</text>
 <text x="1024" y="816">2024-11-27</text>
 </g><g>
-<rect class="esm" height="32" width="110.26285714285714" x="32" y="864"></rect>
-<rect class="dual" height="32" width="153.49028571428573" x="142.26285714285714" y="864"></rect>
-<rect class="faux" height="32" width="96.768" x="295.75314285714285" y="864"></rect>
-<rect class="cjs" height="32" width="599.4788571428571" x="392.5211428571429" y="864"></rect>
-<text text-anchor="middle" transform="translate(87.13142857142857, 880) rotate(-45)">11.5%</text>
-<text text-anchor="middle" transform="translate(219.008, 880)">16.0%</text>
-<text text-anchor="middle" transform="translate(344.13714285714286, 880) rotate(-45)">10.1%</text>
-<text text-anchor="middle" transform="translate(692.2605714285714, 880)">62.4%</text>
+<rect class="esm" height="32" width="113.9943342776204" x="32" y="864"></rect>
+<rect class="dual" height="32" width="158.41359773371104" x="145.9943342776204" y="864"></rect>
+<rect class="faux" height="32" width="99.94334277620398" x="304.40793201133147" y="864"></rect>
+<rect class="cjs" height="32" width="587.6487252124646" x="404.35127478753543" y="864"></rect>
+<text text-anchor="middle" transform="translate(88.9971671388102, 880) rotate(-45)">11.9%</text>
+<text text-anchor="middle" transform="translate(225.20113314447593, 880)">16.5%</text>
+<text text-anchor="middle" transform="translate(354.37960339943345, 880) rotate(-45)">10.4%</text>
+<text text-anchor="middle" transform="translate(698.1756373937677, 880)">61.2%</text>
 <text x="1024" y="880">2025-02-28</text>
 </g>
 <g>

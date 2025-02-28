@@ -68,7 +68,12 @@ while (true) {
         token
       })
     } catch (error) {
-      console.error('package w/ error: %s, likely spam: %s', name, error)
+      const cause = /** @type {Error} */ (error)
+      console.error(
+        'package w/ error: %s, likely spam: %s',
+        name,
+        cause.message
+      )
       /** @type {[string, Style | undefined]} */
       const info = [name, undefined]
       return info
@@ -93,7 +98,7 @@ while (true) {
 
   for (const [name, style] of results) {
     allResults[name] = style
-    console.error('  add: %s (%s)', name, style)
+    if (style) console.error('  add: %s (%s)', name, style)
   }
 
   // Intermediate writes to help debugging and seeing some results early.
@@ -141,6 +146,71 @@ function analyzePackument(result) {
   }
 
   const packument = (result.versions || {})[latest]
+
+  if (
+    typeof packument.repository === 'string' &&
+    packument.repository === 'npm/security-holder'
+  ) {
+    console.error('security-holder package: %s, likely spam', result.name)
+    return
+  }
+
+  if (
+    (packument.readme &&
+      packument.readme.length < 100 &&
+      /tea protocol/.test(packument.readme)) ||
+    /tea protocol/.test(packument.description || '') ||
+    /tea\.xyz/.test(packument.description || '') ||
+    /^tea-?[a-z\d]+$/.test(packument.name)
+  ) {
+    console.error('tea protocol package: %s, likely spam', result.name)
+    return
+  }
+
+  if (
+    packument.description &&
+    packument.description.startsWith(
+      'This is a [Next.js](https://nextjs.org/) project'
+    )
+  ) {
+    console.error('bootstrapped next project: %s, likely spam', result.name)
+    return
+  }
+
+  if (/^sum-[a-z\d]+$/.test(packument.name)) {
+    console.error('weird vietnamese package %s, likely spam', result.name)
+    return
+  }
+
+  if (
+    packument._npmUser &&
+    ([
+      'alexkingmax',
+      'doelsumbing87',
+      'herzxxvi',
+      'hoangthuylinh',
+      'jarwok',
+      'jazuli',
+      'lank831011',
+      'manhcuongsev',
+      'ramunakea',
+      'tinhkhucvang',
+      'tinhmotdem',
+      'vanli',
+      'walletelectorsim'
+    ].includes(packument._npmUser.name) ||
+      /^haquang\d+$/.test(packument._npmUser.name) ||
+      /^haquanghuy\d+$/.test(packument._npmUser.name) ||
+      /^quanghuyha\d+$/.test(packument._npmUser.name))
+  ) {
+    console.error(
+      'known spam author (%s): %s, likely spam',
+      packument._npmUser.name,
+      result.name
+    )
+    return
+  }
+
   const {exports, main, type} = packument
   /** @type {boolean | undefined} */
   let cjs
