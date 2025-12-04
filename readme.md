@@ -56,6 +56,7 @@ date,total,esm,dual,faux,cjs
 2024-11-27,8087,942,1152,843,5150
 2025-02-28,8472,916,1520,852,5184
 2025-06-05,8677,995,1573,859,5250
+2025-12-04,14159,1779,2947,1522,7911
 ```
 
 > 👉 **Note**:
@@ -88,9 +89,8 @@ You need a `NPM_TOKEN` environment variable with a token to crawl npm.
 
 [`script/crawl.js`][file-script-crawl] analyzes the `package.json` files of
 `latest` releases of [high-impact][github-npm-high-impact] npm packages.
-This script finishes in about 5 minutes.
-You should likely first contribute to `npm-high-impact`,
-which can take like 32 hours to complete.
+This script finishes in about 15 minutes.
+You should likely first contribute to `npm-high-impact` though!
 
 [`script/analyze.js`][file-script-analyze] analyzes the data files and
 generates SVG and CSV files from them.
