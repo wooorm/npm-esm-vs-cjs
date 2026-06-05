@@ -8,10 +8,10 @@
   "devDependencies": {
     "@types/d3-dsv": "^3.0.0",
     "@types/hast": "^3.0.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^25.0.0",
     "@types/pacote": "^11.0.0",
     "d3-dsv": "^3.0.0",
-    "dotenv": "^16.0.0",
+    "dotenv": "^17.0.0",
     "hast-util-to-html": "^9.0.0",
     "hastscript": "^9.0.0",
     "npm-high-impact": "^1.0.0",
@@ -20,8 +20,8 @@
     "remark-cli": "^12.0.0",
     "remark-preset-wooorm": "^11.0.0",
     "type-coverage": "^2.0.0",
-    "typescript": "^5.0.0",
-    "xo": "^0.60.0"
+    "typescript": "^6.0.0",
+    "xo": "^2.0.0"
   },
   "exports": [],
   "funding": {
@@ -35,6 +35,11 @@
   ],
   "license": "MIT",
   "name": "npm-esm-vs-cjs",
+  "overrides": {
+    "c8": {
+      "yargs": "^18.0.0"
+    }
+  },
   "prettier": {
     "bracketSpacing": false,
     "singleQuote": true,
@@ -65,7 +70,9 @@
     "rules": {
       "complexity": "off",
       "max-depth": "off",
-      "no-await-in-loop": "off"
-    }
+      "no-await-in-loop": "off",
+      "require-unicode-regexp": "off"
+    },
+    "space": true
   }
 }

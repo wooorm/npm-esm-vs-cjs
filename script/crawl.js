@@ -42,7 +42,6 @@ const allResults = {}
 
 console.error('fetching %s packages', npmHighImpact.length)
 
-// eslint-disable-next-line no-constant-condition
 while (true) {
   const names = npmHighImpact.slice(slice * size, (slice + 1) * size)
 
@@ -137,7 +136,7 @@ function sleep(ms) {
  *   Style.
  */
 function analyzePackument(result) {
-  const latest = (result['dist-tags'] || {}).latest
+  const {latest} = result['dist-tags'] || {}
 
   // Some spam packages were removed. They might still be in the list tho.
   if (!latest) {
