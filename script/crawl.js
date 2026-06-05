@@ -9,11 +9,14 @@
 
 import fs from 'node:fs/promises'
 import process from 'node:process'
-import dotenv from 'dotenv'
 import {npmHighImpact} from 'npm-high-impact'
 import pacote from 'pacote'
 
-dotenv.config()
+try {
+  process.loadEnvFile()
+} catch {
+  // Ignore.
+}
 
 const token = process.env.NPM_TOKEN
 
